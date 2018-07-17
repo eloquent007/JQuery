@@ -1,41 +1,31 @@
 
-$.ajax()메소드를 다음 두가지 형태로 사용할 수 있다.
+<script>
+$(document).ready(function() {
+     jQuery.ajax({
+           type:"GET",
+           url:"/test",
+           dataType:"JSON", // 옵션이므로 JSON으로 받을게 아니면 안써도 됨
+           success : function(data) {
+                 // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                 // TODO
+           },
+           complete : function(data) {
+                 // 통신이 실패했어도 완료가 되었을 때 이 함수를 타게 된다.
+                 // TODO
+           },
+           error : function(xhr, status, error) {
+                 alert("에러발생");
+           }
+     });
+});
+</script>
 
- 
 
-1. $.ajax(option)
+보통 complete을 쓸 지, success를 쓸 지는 상황에 따라 다르다.
+둘 중 하나만 써야함. 그냥 설명하기 위해 2개 쓴 것임.
+(반드시 둘 중 하나만 써야하는건 아니고, 둘다 쓰면 두 번 호출되기 때문에)
 
-2. $.ajax(url, option)
-
- 
-
-        $(document).ready(function () {
-            // TEXT
-            $.ajax('/Home/MyFirstStringAction', {
-                success: function (data) {
-                    $('body').append(data);
-                }
-            }); 
-
-       });
-
-success 이벤트 헨들러의 첫번째 매개 변수는 Ajax가 성공했을때 받는 데이터다.
-
-$.ajax() 메소드 내부에서는 XMLHttpRequest 객체를 만들어 Ajax를 수행한다.
-
- 
-
- 
-
-            $.ajax({
-                url: '/Home/ActionWithData',
-                data: { name: 'rintiantta', age: 21 },
-                success: function (data) {
-                    $('body').append(data);
-                }
-            });
-
-$.ajax()메소드의 매개변수 url을 위처럼 옵션을 지정할수 있다. 
-
- 
-
+* 참고로 jQuery를 사용하지 않은 순수 AJAX를 통해 데이터를 받아왔을 때는 eval 함수를 써야한다. 
+jQuery의 AJAX에서는 자체적으로 JSON Object로 변환 시켜준 것이기 때문에 그냥 사용할 수 있지만
+순수 AJAX에서는 JSON 객체로 변환되지 않았기 때문이다.
+출처: http://marobiana.tistory.com/77 [Take Action]
