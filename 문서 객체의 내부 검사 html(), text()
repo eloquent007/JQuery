@@ -1,0 +1,42 @@
+html() : 문서 객체 내부의 글자와 관련된 모든 기능을 수행 합니다.(html 태그 인식) 
+
+text(): 문서 객체 내부의 글자와 관련된 무든 기능을 수행 합니다.. 
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var html = $('h1').html();
+
+            // 출력합니다.
+            alert(html);
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>
+
+  
+
+ 
+
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var text = $('h1').text();
+
+            // 출력합니다.
+            alert(text);
+        });
+    </script>
+
+ 
