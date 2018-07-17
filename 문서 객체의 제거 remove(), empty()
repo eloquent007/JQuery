@@ -1,0 +1,34 @@
+
+remove() : 특정 문서 객체를 제거 합니다.
+empty() :특정 문서 객체의 후손을 모두 제거 합니다.
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('h1').first().remove();
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Header-0</h1>
+        <h1>Header-1</h1>
+    </div>
+</body>
+</html>
+
+  
+
+ 
+
+    <script>
+        $(document).ready(function () {
+            $('div').empty();
+        });
+    </script>
+
+ 
