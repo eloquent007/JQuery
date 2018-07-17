@@ -1,0 +1,40 @@
+1. $(selector).unbind() 
+2. $(selector).unbind(eventName)
+3. $(selector).unbind(eventName,function)
+ 
+
+1번 형태는 해당 문서 객체와 관련된 모든 이벤트 제거.
+2번 형태는 해당 문서의 특정 이벤트와 관련된 모든 이벤트 제거.
+3번 형태는 특정 이벤트 핸들러를 제거. 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 이벤트를 연결합니다.
+            $('h1').click(function () {
+                // 출력합니다.
+                $(this).html('CLICK');
+                alert('이벤트가 발생했습니다.');
+                // 이벤트를 제거합니다.
+                $(this).unbind();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html> 
+
+ 
+ 
+
+사실 이러한 기능을 제공하는  jQuery메소드가 별도 존재.
+
+one() : 이벤트를 한번만 연결 합니다.
+매개변수는 bind()와 동일
