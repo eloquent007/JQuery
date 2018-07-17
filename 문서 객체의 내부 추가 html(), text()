@@ -1,0 +1,76 @@
+1. $(selector).html(value); 
+
+    $(selector).text(value);
+
+ 
+
+2. $(selector).html(function(index, html) {});
+
+    $(selector).text(function(index, text) {});
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').text('<h1>$().html() Method</h1>');
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
+
+ 
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').html(function (index) {
+                return '<h1>Header-' + index + '</h1>';
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
+
+ 
+
+ 
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('h1').html(function (index, html) {
+                return '★' + html + '★';
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>
