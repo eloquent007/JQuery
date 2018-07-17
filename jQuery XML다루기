@@ -1,0 +1,17 @@
+jQuery의 find() 메서드를 사용해  XML문서를 다른 방법. 
+
+ 
+
+        // XML
+            $.ajax('/Home/MyFirstXMLAction', {
+                success: function (data) {
+                    $(data).find('person').each(function () {
+                        var name = '<li>' + $(this).find('name').text() + '</li>';
+                        var gender = '<li>' + $(this).find('gender').text() + '</li>';
+                        var part = '<li>' + $(this).find('part').text() + '</li>';
+                        $('#wrap').append('<ul>' + name + gender + part + '</ul>');
+                    });
+                }
+            });
+
+ 
