@@ -1,0 +1,49 @@
+    <script>
+        $(document).ready(function () {
+            var object = {};
+            object.name = 'RintIanTta';
+            object.gender = 'Male';
+            object.part = 'Second Guitar';
+        });
+    </script> 
+
+많은 수의 속성을 추가할때, 이방법을 사용하면 매우 귀찮고 코드가 지저분 해 진다.
+그래서  $.extend() 메서드가 있다.
+
+* $.extend(object, addObject, adObject, .....)
+  
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var object = { name: 'RintIanTta' };
+
+            // $.extend() 메서드를 사용합니다.
+            $.extend(object, {
+                gender: 'Male',
+                part: 'Second Guitar'
+            });
+
+            // 출력합니다.
+            var output = '';
+            $.each(object, function (key, item) {
+                output += key + ': ' + item + '\n';
+            });
+            alert(output);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+ 
+결과 : name: 'RintIanTta' 
+         gender:Male
+         part :Second Guitar 
+         
+         
