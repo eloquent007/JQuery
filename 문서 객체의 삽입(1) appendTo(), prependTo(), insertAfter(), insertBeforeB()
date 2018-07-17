@@ -1,0 +1,4 @@
+$(A).appendTo(B) : A를 B의 뒷 부분에 추가  
+$(A).prependTo(B) : A를 B의 앞 부분에 추가  
+$(A).insertAfter(B) :  A를 B의 뒤에 추가  
+$(A).insertBeforeB)  : A를 B의 앞에 추가 
