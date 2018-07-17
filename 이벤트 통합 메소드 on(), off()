@@ -1,0 +1,115 @@
+
+jQuery 1.7 버전부터 메소드 통합하여.
+
+on() : 이벤트를 연결.
+
+off() : 이벤트를 제거. 
+
+ 
+
+1. bind() : $(selector).on(eventName, eventHandler)
+
+2. live() : $(document).on(eventName, selector, eventHandler)
+
+3.delegate() : $(selector).on(eventName, selector, eventHandler)
+
+ 
+
+1. unbind() : $(selector).off(eventName[, eventHandler])
+
+2. die() : $(document).off(eventName, selector[, eventHandler])
+
+3.undelegate() : $(selector).off(eventName, selector[, eventHandler])
+
+ 
+
+ 
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { margin:0px; padding:0px; }
+        div  {
+            margin:10px; padding:10px;
+            border:3px Solid Black;
+            border-radius:10px;
+        }
+    </style>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').on('click', function () {
+                $(this).clone().appendTo('body');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>$(selector).on()</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+</body>
+</html>
+
+<== 새로 생성한 문서 객체에도 이벤트를 적용하고 싶다면  live()메서드나  delegate()메소드를 사용해야 할까?
+
+ 
+
+   <script>
+        $(document).ready(function () {
+            $('body').on('click', 'div', function () {
+                $(this).clone().appendTo('body');
+            });
+        });
+    </script>
+
+ <==이렇게 작성하면 새로 생성한 문서 객체에도 이벤트가 적용 된다.
+
+ 
+
+ 
+
+ 
+
+ 
+
+    <script>
+        $(document).ready(function () {
+            $('#upper_div').on('click', 'div', function () {
+                $(this).clone().appendTo('#upper_div');
+                $(this).clone().appendTo('#lower_div');
+            });
+        });
+    </script>
+
+   <== upper_div 태그로 한정할때.
+
+ 
+
+ 
+
+ 
+
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', 'div', function () {
+                $(this).clone().appendTo('#upper_div');
+                $(this).clone().appendTo('#lower_div');
+            });
+        });
+    </script>
+
+  <== 새로 생성한 모든 객체에서도 이벤트가 적용 된다.
+
+        (무한 확장이라...새로 생성시킬려고  마우스 클릭하면 대략 난감.^^;)
+
+ 
+
+ 
+
+
+ 
