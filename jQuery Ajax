@@ -1,0 +1,41 @@
+
+$.ajax()메소드를 다음 두가지 형태로 사용할 수 있다.
+
+ 
+
+1. $.ajax(option)
+
+2. $.ajax(url, option)
+
+ 
+
+        $(document).ready(function () {
+            // TEXT
+            $.ajax('/Home/MyFirstStringAction', {
+                success: function (data) {
+                    $('body').append(data);
+                }
+            }); 
+
+       });
+
+success 이벤트 헨들러의 첫번째 매개 변수는 Ajax가 성공했을때 받는 데이터다.
+
+$.ajax() 메소드 내부에서는 XMLHttpRequest 객체를 만들어 Ajax를 수행한다.
+
+ 
+
+ 
+
+            $.ajax({
+                url: '/Home/ActionWithData',
+                data: { name: 'rintiantta', age: 21 },
+                success: function (data) {
+                    $('body').append(data);
+                }
+            });
+
+$.ajax()메소드의 매개변수 url을 위처럼 옵션을 지정할수 있다. 
+
+ 
+
