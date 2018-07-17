@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div 
+        {
+            margin:10px;
+            border:3px Solid Black;
+            border-radius:10px;
+            float:left;
+            width:120px; height:120px;
+            text-align:center;
+        }
+    </style>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        // 변수를 선언합니다.
+        var xml = '';
+        xml += '<friends>';
+        xml += '    <friend>';
+        xml += '        <name>연하진</name>';
+        xml += '        <language>Ruby</language>';
+        xml += '    </friend>';
+        xml += '    <friend>';
+        xml += '        <name>윤명월</name>';
+        xml += '        <language>Basic</language>';
+        xml += '    </friend>';
+        xml += '    <friend>';
+        xml += '        <name>윤하린</name>';
+        xml += '        <language>C#</language>';
+        xml += '    </friend>';
+        xml += '</friends>';
+
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var xmlDoc = $.parseXML(xml); '<== 익스폴로러에서는 문제가 발생하므로  parseXML사용.(다른 브라우저는 xml을 그대로 사용해도 오류가 나지 않는다.) 
+            $(xmlDoc).find('friend').each(function (index) {
+                // 변수를 선언합니다.
+                var output = '';
+                output += '<div>';
+                output += '    <h1>' + $(this).find('name').text() + '</h1>';
+                output += '    <p>' + $(this).find('language').text() + '</p>';
+                output += '</div>';
+
+                // 출력합니다.
+                document.body.innerHTML += output;
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
