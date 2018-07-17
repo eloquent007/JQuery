@@ -1,0 +1,64 @@
+preventDefault() : 기본이벤트를 제거 합니다. 
+
+stopPropagation() : 이벤트 전달을 제거 합니다.
+
+ 
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin:5px; padding:5px;
+            border:3px solid Black;
+        }
+    </style>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('a').click(function (event) {
+                $(this).css('background-color', 'Blue');
+                event.stopPropagation(); '<--이것만 사용할 경우 h1은 이벤트가 발생한다.
+                event.preventDefault();
+            });
+
+            $('h1').click(function () {
+                $(this).css('background-color', 'Red');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>
+        <a href="http://hanb.co.kr">Hanb Media</a>
+    </h1>
+</body>
+</html>
+
+ 
+
+ 
+
+ 
+
+    <script>
+        $(document).ready(function () {
+            $('a').click(function (event) {
+                $(this).css('background-color', 'Blue');
+                return false;
+            });
+
+            $('h1').click(function () {
+                $(this).css('background-color', 'Red');
+            });
+        });
+    </script>
+
+ 
+
+jQuery는 간단하게  return false를 사용하여 이 두가지를 함께 적용하는것으로 인식 한다.
+기존 자바스크립트는  return false를 사용하면 기본 이벤트만 제거된다는 점에 주의.
+
+ 
