@@ -1,0 +1,33 @@
+   <script>
+        $(document).ready(function () {
+            $('<h1></h1>');
+        });
+    </script> 
+
+ 
+
+    <script>
+        $(document).ready(function () {
+            $('<h1></h1>').html('Hello World .. !');
+        });
+    </script>
+
+ 
+
+ 문서객체의 연결
+
+    <script>
+        $(document).ready(function () {
+            $('<h1></h1>').html('Hello World .. !').appendTo('body');
+        });
+    </script> 
+
+ 
+
+ 
+
+    <script>
+        $(document).ready(function () {
+            $('<h1>Hello World .. !</h1>').appendTo('body');
+        });
+    </script>
