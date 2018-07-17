@@ -1,0 +1,90 @@
+$(selector).method(function(event) {} ); 
+
+ 
+
+toggle() : click이벤트를 여러 이벤트 핸드러를 번갈아 가면서 실행할수 있게 연결.
+
+hover() : mouseenter 이벤트와 mouseleaver 이벤트를 동시에 연결.
+
+ 
+
+hover()메소드
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .reverse {
+            background: Black;
+            color: White;
+        }
+    </style>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+        // 이벤트를 연결합니다.
+            $('h1').hover(function () {
+                $(this).addClass('reverse');
+            }, function () {
+                $(this).removeClass('reverse');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html> 
+
+ 
+
+ 
+
+toggle()메소드
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .reverse {
+            background: Black;
+            color: White;
+        }
+    </style>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 이벤트를 연결합니다.
+            $('h1').hover(function () {
+                $(this).addClass('reverse');
+            }, function () {
+                $(this).removeClass('reverse');
+            });
+            // 이벤트를 연결합니다.
+            $('h1').toggle(function () {
+                // 문자열의 앞에 별을 추가합니다.
+                $(this).html(function (index, html) {
+                    return '★' + html;
+                });
+            }, function () {
+                // 문자열의 뒤에 별을 추가합니다.
+                $(this).html(function (index, html) {
+                    return html + '★';
+                });
+            }, function () {
+                // 문자열의 별을 제거합니다.
+                $(this).html(function (index, html) {
+                    return html.substring(1, html.length - 1);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>
