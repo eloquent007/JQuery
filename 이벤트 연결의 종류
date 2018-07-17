@@ -1,0 +1,64 @@
+bind() : 현재 존재하는 문서 객체에만 이벤트를 연결.
+
+delegate() : 현재 또는 미래에 존재하는 문서 객체에 이벤트를 연결.
+
+live() : 현재 또는 미래에 존재하는 문서 객체에 이벤트를 연결.
+
+one() : 한번만 이벤트에 연결.
+
+ 
+
+unbind() : bind() 메소드를 사용해 연결한 이벤트를 제거.
+
+die(): live()메소드를  사용해 연결한 이벤트를 제거.
+
+undelegate() : delegate()메소드를 사용해 연결한 이벤트를 제거.
+
+ 
+
+one()은 한번만 사용하고 말기때문에 제거 함수가 필요 없다.
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('h1').bind('click', function () {
+                var length = $('h1').length;
+                var targetHTML = $(this).html();
+                $('#wrap').append('<h1>' + length + ' - ' + targetHTML + '</h1>');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>Header</h1>
+    </div>
+</body>
+</html>
+
+ 
+
+ 
+ 
+
+    <script>
+        $(document).ready(function () {
+            $('h1').live('click', function () {  '<== live를 사용할경우 기존에 만든 문서에도 이벤트가 발생된다.
+                var length = $('h1').length;
+                var targetHTML = $(this).html();
+                $('#wrap').append('<h1>' + length + ' - ' + targetHTML + '</h1>');
+            });
+        });
+    </script>
+
+ 
+
+ 
+jQuery 1.7  버전부터 메소드 통합하여.
+on() : 이벤트를 연결.
+off() : 이벤트를 제거.
