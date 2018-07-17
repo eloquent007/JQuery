@@ -1,0 +1,48 @@
+jQuery가 지원하는 추가적인 Ajax 메서드를 사용하면 정말 간단한 $.ajax()메서드를 더 간단하게 사용 할수 있다.
+
+ 
+
+$.get() :  get 방식으로 Ajax를 수행. 
+$.post() : post방식으로 Ajax를 수행.
+$.getJSON() : get방식으로 Ajax를 수행해 JSON 데이터를 가져옴.
+$.getScript() : get방식으로 Ajax를 수행해 Script 데이터를 가져옴.
+$(selector).load() : Ajax를 수행한 후에 선택자로 선택한 문서 객체 안에 응답받을 문자열을 넣는다. 
+
+* $get()메서드를 사용해서도 JSON 데이터를 가져올수 있다.
+ 
+
+    $(document).ready(function () {
+            // TEXT
+            $.post('/Home/MyFirstStringAction', function (data) {
+                    $('body').html(data);
+                }
+            });
+
+   });
+ 
+
+$(document).ready(function () {            
+            $('body').load('/Home/MyFirstStringAction');
+    });
+
+$(selector).load() 메서드를 사용하면 훨씬 간단하게 데이터를 가져 올 수 있다. 
+
+ 
+
+ 
+
+ 
+
+$.getJSON() 메서드를 사용하면  jSON을 손쉽게 가져 올 수 있다.
+
+            // JSON
+            $.getJSON('/Home/MyFirstJsonAction', function (data) {
+                $.each(data, function (key, value) {
+                    $('body').append('<h1>' + key + ' : ' + value + '</h1>');
+                });
+            });
+
+ 
+
+ eval() 함수를 사용하여  JSON을 자바스크립트 객체로 변경할 필요가 없다.
+ JSON 규정에 맞지 않으면 매개 변수 data가 문자열로 입력되므로 주의.
