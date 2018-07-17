@@ -1,0 +1,44 @@
+요소:button   => input  태그 중 type속성이 button인 문서 객체와 button 태그를 선택 합니다. 
+요소:checkbox =>   input 태그 중 type속성이 checkbox인 문서 객체를 선택합니다.
+file, image, password, radio, reset , submit, text  동일 
+
+
+요소:checked => 체크된 입력 양식을 선택 합니다.
+요소:disabled =>비활성화된 양식을 선택 합니다.
+요소:enabled =>활성화된 양식을 선택 합니다.
+요소:focus =>초점이 맞춰져 있는 입력 양식을 선택 합니다.
+요소:input =>모든 입력 양식을 선택 합니다.( input, textarea, select, button 태그)
+요소:selected =>option 객체 중 선택된 태그를 선택 합니다.
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 5초 후에 코드를 실행합니다.
+            setTimeout(function () {
+                // 변수를 선언합니다.
+                var value = $('select > option:selected').val();
+                // 출력합니다.
+                alert(value);
+            }, 5000);
+        });
+    </script>
+</head>
+<body>
+    <select>
+        <option>Apple</option>
+        <option>Bag</option>
+        <option>Cat</option>
+        <option>Dog</option>
+        <option>Elephant</option>
+    </select>
+</body>
+</html>
+
+ 
+
+선택한 문서 객체의 val()메서드를 매개 변수 없이 사용하며 입력 양식의 value속성을 알아 낼수 있다.
