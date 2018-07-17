@@ -1,0 +1,20 @@
+    <script>
+        $(document).ready(function () {
+            $('<img />').attr('src', 'Chrysanthemum.jpg').appendTo('body');
+        });
+    </script> 
+
+ 
+
+attr()메소드를 사용하지 않고 사용 하는 방법.
+
+    <script>
+        $(document).ready(function () {
+            $('<img />', {
+                src: 'Chrysanthemum.jpg',
+                width: 350,
+                height: 250
+            }).appendTo('body');
+        });
+    </script> 
+
