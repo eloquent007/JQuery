@@ -1,0 +1,46 @@
+append()메소드를 사용한 문서 객체의 이동
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').append($('h1'));
+        });
+    </script>
+</head>
+<body>
+    <h1>HEADER</h1>
+    <hr/><div></div><hr/>
+</body>
+</html> 
+
+ 
+
+ 
+
+clone() : 문서 객체를 복제 합니다.
+1. $(selector).clone()
+
+2. $(selector).clone(Boolean dataAndEvents)
+
+3. $(selector).clone(Boolean dataAndEvents, Boolean deepDataAndEvents)
+
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div').append($('h1').clone());
+        });
+    </script>
+</head>
+<body>
+    <h1>HEADER</h1>
+    <hr/><div></div><hr/>
+</body>
+</html>
