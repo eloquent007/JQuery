@@ -1,0 +1,101 @@
+전체 페이지를 새로고침 하지 않고도
+간편하게 테이블 정렬을 할 수 있도록 만든 jQuery의 플러그인 tablesorter.
+jQuery는 별다른 설정 없이 js파일을 포함하면 쉽게 사용할 수 있다.
+tablesorter를 사용하려면 jQuery와 함께 script를 적어준다.
+js 파일이 html파일과 같은 디렉토리에 있는경우
+
+<script type="text/javascript" src="jquery-1.2.6.js"></script>
+<script type="text/javascript" src="jquery.tablesorter.js"></script>
+
+테이블소터는 표준HTML테이블에서 실행되므로, thead와 tbody 태그를 포함해야 한다.
+
+<table id="myTable"> 
+<thead> 
+<tr> 
+<th>Last Name</th> 
+<th>First Name</th> 
+<th>Email</th> 
+<th>Due</th> 
+<th>Web Site</th> 
+</tr> 
+</thead> 
+<tbody> 
+<tr> 
+<td>Smith</td> 
+<td>John</td> 
+<td>jsmith@gmail.com</td> 
+<td>$50.00</td> 
+<td>http://www.jsmith.com</td> 
+</tr> 
+<tr> 
+<td>Bach</td> 
+<td>Frank</td> 
+<td>fbach@yahoo.com</td> 
+<td>$50.00</td> 
+<td>http://www.frank.com</td> 
+</tr> 
+<tr> 
+<td>Doe</td> 
+<td>Jason</td> 
+<td>jdoe@hotmail.com</td> 
+<td>$100.00</td> 
+<td>http://www.jdoe.com</td> 
+</tr> 
+<tr> 
+<td>Conway</td> 
+<td>Tim</td> 
+<td>tconway@earthlink.net</td> 
+<td>$50.00</td> 
+<td>http://www.timconway.com</td> 
+</tr> 
+</tbody> 
+</table> 
+
+스크립트부분에 jQuery를 실행할 수 있도록 추가함
+$(document).ready(function() 
+{ 
+$("#myTable").tablesorter(); 
+} );
+
+이렇게 하면 기본은 끝이다.
+
+브라우저에서 html파일을 로딩한 뒤, thead를 클릭하면 해당 컬럼 기준으로
+
+테이블정렬이 되는것을 확인할 수 있다.
+
+처음 로딩시 초기정렬을 하고자 하는 경우에는
+
+$(document).ready(function() 
+{ 
+$("#myTable").tablesorter( {sortList: [[0,0], [2,0]]} ); 
+} );
+
+위와 같이 설정해주면 첫번째컬럽과 세번째컬럼을 정렬한다.
+# [0,0] <--0번째 컬럼 오름차순, [0,1]<-- 0번째 컬럼 내림차순으로 정렬됨.
+
+
+일부 컬럼만 정렬가능하도록 설정을 하고자 할 경우
+
+$(document).ready(function() { 
+$("myTable").tablesorter({ 
+headers: { 
+// 두번째 컬럼설정(0부터 시작함)
+1: { 
+// 정렬을 false로 설정
+sorter: false 
+}, 
+//세번째 컬럼설정
+2: { 
+sorter: false 
+} 
+} 
+}); 
+});
+참고사이트 :
+
+jQuery : http://jquery.com/
+
+tablesorter : http://tablesorter.com/docs/
+
+
+출처: http://dsbp.tistory.com/215 [DS's『 행복합시다 』]
