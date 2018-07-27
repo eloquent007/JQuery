@@ -11,7 +11,7 @@ reset :reset 버튼을 누르면 발생.
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="</script'>http://code.jquery.com/jquery-1.7.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
     <script>
         $(document).ready(function () {
             $('#my_form').submit(function (event) {
