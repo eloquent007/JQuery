@@ -1,0 +1,83 @@
+
+<script>
+var nCount = 0;
+var ifrContentsTimer; 
+
+function resizeRetry() { //이미지같이 로딩시간이 걸리는 것들이 로딩된후 다시 한번 리사이즈 
+    if(document.body.readyState == "complete") { 
+        resizeFrame();
+        clearInterval(ifrContentsTimer); 
+    }else { 
+        resizeFrame(); 
+    } 
+} 
+function resizeFrame(){  //페이지가 로딩되면 바로 리사이즈.. 
+	
+		if (nCount &lt; 1)
+		{
+			nCount++;
+			ifrContentsTimer = setInterval(resizeRetry,100);
+		}
+		
+		var w = parseInt(document.body.scrollWidth)+10; 
+        var h = parseInt(document.body.scrollHeight)+10; 
+        if(h &lt; 400){h=400;} 
+      	self.resizeTo(w,h); 
+
+      
+} 
+window.onload = resizeFrame;
+</script>
+
+
+
+2번째 방법.
+<script>
+function resizeIframe(){
+	var turl =  document.location.href;
+	if (turl.indexOf("https://") > -1) { sslHttp = "https://" } else { sslHttp = "http://" };
+	var iframe = document.getElementById("inneriframe");
+	var divContents = document.getElementById("subContainer");
+	var height = divContents.clientHeight;
+	var iframeUrl = sslHttp + "XXX.com/app/common/cross_resize.jsp?height="+height;
+	iframe.src = iframeUrl;
+}
+</script>
+
+iframe으로 들어간 페이지 에서 resizeIframe(); 호출해서 바디를 가지고 있는 bccard에 사이즈 보내주기.
+
+
+
+
+cross_resize.jsp 소스
+document.domain = 'XXX.com';
+
+function onLoad() {
+    var params = window.location.search.substring(1).split("&");
+    var height;
+    var title = "";
+    var l;
+    for (var i = 0, l = params.length; i < l; i++) {
+        var parts = params[i].split("=");
+        switch (parts[0]) {
+        case "height":
+            height = parseInt(parts[1]);
+            break;
+        case "title":
+            title = parts[1];
+            break;
+        }
+    }
+    if (typeof(height) == "number") {
+    	//alert(height);
+        window.top.updateIFrame(height);
+    }
+}
+window.onload = onLoad;
+
+
+
+
+
+
+
